@@ -1,0 +1,12 @@
+{
+  "name": "registry-hybrid",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Hybrid OpenCollection / Bruno registry: a versioned pointer index where each version is independently sourced (git or url). The registry is just this repo.",
+  "scripts": {
+    "seed": "node scripts/seed.mjs",
+    "build": "node scripts/build-index.mjs",
+    "validate": "node scripts/build-index.mjs --check"
+  }
+}

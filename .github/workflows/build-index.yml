@@ -1,0 +1,47 @@
+name: build-index
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'collection/**'
+  pull_request:
+    paths:
+      - 'collection/**'
+  # Manual trigger — handy for forcing a rebuild.
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  # On PRs: validate every entry parses, matches its path, and has valid versions.
+  validate:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - run: node scripts/build-index.mjs --check
+
+  # On merge to main (new/changed collection) or manually: rebuild index.json and
+  # commit it back if it changed. The website/app fetch this file. No network
+  # calls — the registry stores no stats, so the build is pure and offline.
+  rebuild:
+    if: github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - run: node scripts/build-index.mjs
+      - name: Commit regenerated index.json
+        run: |
+          git config user.name "registry-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add index.json
+          git diff --staged --quiet || git commit -m "chore: rebuild index.json [skip ci]"
+          git push

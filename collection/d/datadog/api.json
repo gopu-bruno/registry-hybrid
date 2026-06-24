@@ -1,0 +1,23 @@
+{
+  "ns": "datadog",
+  "name": "api",
+  "title": "Datadog API",
+  "tagline": "Metrics, monitors, logs and dashboards.",
+  "category": "devops",
+  "langs": [
+    "REST"
+  ],
+  "color": "#632ca6",
+  "trending": true,
+  "versions": [
+    {
+      "version": "1.0",
+      "type": "git",
+      "source": {
+        "repo": "https://github.com/gopu-bruno/bruno-collections",
+        "subdir": "datadog-api",
+        "ref": "main"
+      }
+    }
+  ]
+}

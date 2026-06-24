@@ -1,0 +1,74 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Registry collection entry",
+  "description": "One file per collection at collection/<letter>/<ns>/<name>.json, where <letter> is the first character of <ns>. A pointer to one or more published versions of a Bruno/OpenCollection. Each version is independently sourced (git or url) — adding a version is a PR that appends to `versions`. The registry stores no usage stats; install counts come from a separate public API.",
+  "type": "object",
+  "required": ["ns", "name", "title", "category", "versions"],
+  "additionalProperties": false,
+  "properties": {
+    "ns": { "type": "string", "pattern": "^[a-z0-9-]+$", "description": "Publisher / namespace. Must match the <ns> folder; its first char is the <letter> shard." },
+    "name": { "type": "string", "pattern": "^[a-z0-9-]+$", "description": "Collection name. Must match the <name> filename." },
+    "title": { "type": "string", "description": "Display title shown in search and on the detail page." },
+    "tagline": { "type": "string", "description": "One sentence shown under the title in search." },
+    "category": {
+      "type": "string",
+      "enum": ["payments", "ai", "auth", "devops", "comms", "data", "storage", "productivity"]
+    },
+    "langs": { "type": "array", "description": "Optional display tags (e.g. \"REST\", \"Streaming\").", "items": { "type": "string" } },
+    "color": { "type": "string", "description": "Optional accent color (hex) for the listing." },
+    "verified": { "type": "boolean", "description": "EDITORIAL — set by maintainers during review. Omit when submitting." },
+    "official": { "type": "boolean", "description": "EDITORIAL — set by maintainers during review. Omit when submitting." },
+    "featured": { "type": "boolean", "description": "EDITORIAL — set by maintainers during review. Omit when submitting." },
+    "trending": { "type": "boolean", "description": "EDITORIAL — set by maintainers during review. Omit when submitting." },
+    "versions": {
+      "type": "array",
+      "minItems": 1,
+      "description": "Every published version, newest or oldest order doesn't matter (latest is derived by semver). Add one entry per version via PR; `type` may differ across versions (e.g. v1.0 from git, v1.1 from url).",
+      "items": {
+        "type": "object",
+        "required": ["version", "type", "source"],
+        "additionalProperties": false,
+        "properties": {
+          "version": { "type": "string", "description": "Manual version label, e.g. \"1.0\" or \"2.1.3\". Compared as semver to pick the latest." },
+          "type": { "type": "string", "enum": ["git", "url"], "description": "How `source` is resolved: clone a git repo, or download a hosted artifact." },
+          "source": { "type": "object", "description": "Locator for this version's opencollection artifact. Shape depends on `type` (see allOf)." },
+          "hash": { "type": "string", "description": "Optional SHA-256 of the resolved opencollection artifact, SRI-style \"sha256-<base64>\". Verified client-side after download." }
+        },
+        "allOf": [
+          {
+            "if": { "properties": { "type": { "const": "git" } } },
+            "then": {
+              "properties": {
+                "source": {
+                  "type": "object",
+                  "required": ["repo"],
+                  "additionalProperties": false,
+                  "properties": {
+                    "repo": { "type": "string", "format": "uri", "description": "Git repo URL to clone." },
+                    "ref": { "type": "string", "description": "Tag, branch or commit to check out (defaults to the repo's default branch)." },
+                    "subdir": { "type": "string", "description": "Path within the repo where the collection lives, if not the root." }
+                  }
+                }
+              }
+            }
+          },
+          {
+            "if": { "properties": { "type": { "const": "url" } } },
+            "then": {
+              "properties": {
+                "source": {
+                  "type": "object",
+                  "required": ["url"],
+                  "additionalProperties": false,
+                  "properties": {
+                    "url": { "type": "string", "format": "uri", "description": "Direct download URL of the opencollection artifact (any host)." }
+                  }
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

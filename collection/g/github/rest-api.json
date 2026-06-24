@@ -1,0 +1,23 @@
+{
+  "ns": "github",
+  "name": "rest-api",
+  "title": "GitHub REST API",
+  "tagline": "Core endpoints of the GitHub REST API.",
+  "category": "devops",
+  "langs": [
+    "REST"
+  ],
+  "color": "#24292e",
+  "featured": true,
+  "versions": [
+    {
+      "version": "1.0",
+      "type": "git",
+      "source": {
+        "repo": "https://github.com/gopu-bruno/bruno-collections",
+        "subdir": "github-rest-api",
+        "ref": "main"
+      }
+    }
+  ]
+}

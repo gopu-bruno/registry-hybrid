@@ -1,0 +1,23 @@
+{
+  "ns": "hubspot",
+  "name": "crm-api",
+  "title": "HubSpot CRM API",
+  "tagline": "Contacts, companies, deals and tickets.",
+  "category": "productivity",
+  "langs": [
+    "REST"
+  ],
+  "color": "#ff7a59",
+  "trending": true,
+  "versions": [
+    {
+      "version": "1.0",
+      "type": "git",
+      "source": {
+        "repo": "https://github.com/gopu-bruno/bruno-collections",
+        "subdir": "hubspot-crm-api",
+        "ref": "main"
+      }
+    }
+  ]
+}

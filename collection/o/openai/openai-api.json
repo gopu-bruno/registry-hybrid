@@ -1,0 +1,23 @@
+{
+  "ns": "openai",
+  "name": "openai-api",
+  "title": "OpenAI API",
+  "tagline": "Chat completions and models for the OpenAI API.",
+  "category": "ai",
+  "langs": [
+    "REST"
+  ],
+  "color": "#10a37f",
+  "featured": true,
+  "versions": [
+    {
+      "version": "1.0",
+      "type": "git",
+      "source": {
+        "repo": "https://github.com/gopu-bruno/bruno-collections",
+        "subdir": "openai-openai-api",
+        "ref": "main"
+      }
+    }
+  ]
+}

@@ -1,0 +1,448 @@
+{
+  "featured": [
+    {
+      "ns": "github",
+      "name": "rest-api",
+      "title": "GitHub REST API",
+      "tagline": "Core endpoints of the GitHub REST API.",
+      "category": "devops",
+      "langs": [
+        "REST"
+      ],
+      "color": "#24292e",
+      "featured": true,
+      "versions": [
+        {
+          "version": "1.0",
+          "type": "git",
+          "source": {
+            "repo": "https://github.com/gopu-bruno/bruno-collections",
+            "subdir": "github-rest-api",
+            "ref": "main"
+          }
+        }
+      ],
+      "latestVersion": "1.0"
+    },
+    {
+      "ns": "openai",
+      "name": "openai-api",
+      "title": "OpenAI API",
+      "tagline": "Chat completions and models for the OpenAI API.",
+      "category": "ai",
+      "langs": [
+        "REST"
+      ],
+      "color": "#10a37f",
+      "featured": true,
+      "versions": [
+        {
+          "version": "1.0",
+          "type": "git",
+          "source": {
+            "repo": "https://github.com/gopu-bruno/bruno-collections",
+            "subdir": "openai-openai-api",
+            "ref": "main"
+          }
+        }
+      ],
+      "latestVersion": "1.0"
+    },
+    {
+      "ns": "stripe",
+      "name": "stripe-api",
+      "title": "Stripe API",
+      "tagline": "Payments, customers and webhooks for the Stripe REST API.",
+      "category": "payments",
+      "langs": [
+        "REST"
+      ],
+      "color": "#635bff",
+      "featured": true,
+      "versions": [
+        {
+          "version": "1.0",
+          "type": "git",
+          "source": {
+            "repo": "https://github.com/gopu-bruno/bruno-collections",
+            "subdir": "stripe-stripe-api",
+            "ref": "stripe-stripe-api@1.0"
+          }
+        },
+        {
+          "version": "1.1",
+          "type": "url",
+          "source": {
+            "url": "https://cdn.usebruno.com/stripe/stripe-api/1.1/opencollection.yml"
+          },
+          "hash": "sha256-q1Mng3dGfP6mWj5kc3PqV0i8x0Qk2bq1bH8rXjYwZ0E="
+        }
+      ],
+      "latestVersion": "1.1"
+    }
+  ],
+  "trending": [
+    {
+      "ns": "algolia",
+      "name": "search-api",
+      "title": "Algolia Search API",
+      "tagline": "Indexing, search and recommend.",
+      "category": "data",
+      "langs": [
+        "REST"
+      ],
+      "color": "#5468ff",
+      "trending": true,
+      "versions": [
+        {
+          "version": "1.0",
+          "type": "git",
+          "source": {
+            "repo": "https://github.com/gopu-bruno/bruno-collections",
+            "subdir": "algolia-search-api",
+            "ref": "main"
+          }
+        }
+      ],
+      "latestVersion": "1.0"
+    },
+    {
+      "ns": "anthropic",
+      "name": "claude-api",
+      "title": "Claude Messages API",
+      "tagline": "Anthropic Messages API with tool use and prompt caching.",
+      "category": "ai",
+      "langs": [
+        "REST"
+      ],
+      "color": "#d97757",
+      "trending": true,
+      "versions": [
+        {
+          "version": "1.0",
+          "type": "git",
+          "source": {
+            "repo": "https://github.com/gopu-bruno/bruno-collections",
+            "subdir": "anthropic-claude-api",
+            "ref": "main"
+          }
+        }
+      ],
+      "latestVersion": "1.0"
+    },
+    {
+      "ns": "cloudinary",
+      "name": "upload-api",
+      "title": "Cloudinary Upload",
+      "tagline": "Upload, transform and deliver media.",
+      "category": "storage",
+      "langs": [
+        "REST"
+      ],
+      "color": "#3448c5",
+      "trending": true,
+      "versions": [
+        {
+          "version": "1.0",
+          "type": "git",
+          "source": {
+            "repo": "https://github.com/gopu-bruno/bruno-collections",
+            "subdir": "cloudinary-upload-api",
+            "ref": "main"
+          }
+        }
+      ],
+      "latestVersion": "1.0"
+    },
+    {
+      "ns": "datadog",
+      "name": "api",
+      "title": "Datadog API",
+      "tagline": "Metrics, monitors, logs and dashboards.",
+      "category": "devops",
+      "langs": [
+        "REST"
+      ],
+      "color": "#632ca6",
+      "trending": true,
+      "versions": [
+        {
+          "version": "1.0",
+          "type": "git",
+          "source": {
+            "repo": "https://github.com/gopu-bruno/bruno-collections",
+            "subdir": "datadog-api",
+            "ref": "main"
+          }
+        }
+      ],
+      "latestVersion": "1.0"
+    },
+    {
+      "ns": "hubspot",
+      "name": "crm-api",
+      "title": "HubSpot CRM API",
+      "tagline": "Contacts, companies, deals and tickets.",
+      "category": "productivity",
+      "langs": [
+        "REST"
+      ],
+      "color": "#ff7a59",
+      "trending": true,
+      "versions": [
+        {
+          "version": "1.0",
+          "type": "git",
+          "source": {
+            "repo": "https://github.com/gopu-bruno/bruno-collections",
+            "subdir": "hubspot-crm-api",
+            "ref": "main"
+          }
+        }
+      ],
+      "latestVersion": "1.0"
+    }
+  ],
+  "categories": [
+    {
+      "id": "payments",
+      "label": "Payments",
+      "icon": "card",
+      "count": 1
+    },
+    {
+      "id": "ai",
+      "label": "AI & ML",
+      "icon": "sparkle",
+      "count": 2
+    },
+    {
+      "id": "devops",
+      "label": "DevOps & Infra",
+      "icon": "server",
+      "count": 2
+    },
+    {
+      "id": "data",
+      "label": "Data & Analytics",
+      "icon": "chart",
+      "count": 1
+    },
+    {
+      "id": "storage",
+      "label": "Storage & CDN",
+      "icon": "box",
+      "count": 1
+    },
+    {
+      "id": "productivity",
+      "label": "Productivity",
+      "icon": "layout",
+      "count": 1
+    }
+  ],
+  "all": [
+    {
+      "ns": "algolia",
+      "name": "search-api",
+      "title": "Algolia Search API",
+      "tagline": "Indexing, search and recommend.",
+      "category": "data",
+      "langs": [
+        "REST"
+      ],
+      "color": "#5468ff",
+      "trending": true,
+      "versions": [
+        {
+          "version": "1.0",
+          "type": "git",
+          "source": {
+            "repo": "https://github.com/gopu-bruno/bruno-collections",
+            "subdir": "algolia-search-api",
+            "ref": "main"
+          }
+        }
+      ],
+      "latestVersion": "1.0"
+    },
+    {
+      "ns": "anthropic",
+      "name": "claude-api",
+      "title": "Claude Messages API",
+      "tagline": "Anthropic Messages API with tool use and prompt caching.",
+      "category": "ai",
+      "langs": [
+        "REST"
+      ],
+      "color": "#d97757",
+      "trending": true,
+      "versions": [
+        {
+          "version": "1.0",
+          "type": "git",
+          "source": {
+            "repo": "https://github.com/gopu-bruno/bruno-collections",
+            "subdir": "anthropic-claude-api",
+            "ref": "main"
+          }
+        }
+      ],
+      "latestVersion": "1.0"
+    },
+    {
+      "ns": "cloudinary",
+      "name": "upload-api",
+      "title": "Cloudinary Upload",
+      "tagline": "Upload, transform and deliver media.",
+      "category": "storage",
+      "langs": [
+        "REST"
+      ],
+      "color": "#3448c5",
+      "trending": true,
+      "versions": [
+        {
+          "version": "1.0",
+          "type": "git",
+          "source": {
+            "repo": "https://github.com/gopu-bruno/bruno-collections",
+            "subdir": "cloudinary-upload-api",
+            "ref": "main"
+          }
+        }
+      ],
+      "latestVersion": "1.0"
+    },
+    {
+      "ns": "datadog",
+      "name": "api",
+      "title": "Datadog API",
+      "tagline": "Metrics, monitors, logs and dashboards.",
+      "category": "devops",
+      "langs": [
+        "REST"
+      ],
+      "color": "#632ca6",
+      "trending": true,
+      "versions": [
+        {
+          "version": "1.0",
+          "type": "git",
+          "source": {
+            "repo": "https://github.com/gopu-bruno/bruno-collections",
+            "subdir": "datadog-api",
+            "ref": "main"
+          }
+        }
+      ],
+      "latestVersion": "1.0"
+    },
+    {
+      "ns": "github",
+      "name": "rest-api",
+      "title": "GitHub REST API",
+      "tagline": "Core endpoints of the GitHub REST API.",
+      "category": "devops",
+      "langs": [
+        "REST"
+      ],
+      "color": "#24292e",
+      "featured": true,
+      "versions": [
+        {
+          "version": "1.0",
+          "type": "git",
+          "source": {
+            "repo": "https://github.com/gopu-bruno/bruno-collections",
+            "subdir": "github-rest-api",
+            "ref": "main"
+          }
+        }
+      ],
+      "latestVersion": "1.0"
+    },
+    {
+      "ns": "hubspot",
+      "name": "crm-api",
+      "title": "HubSpot CRM API",
+      "tagline": "Contacts, companies, deals and tickets.",
+      "category": "productivity",
+      "langs": [
+        "REST"
+      ],
+      "color": "#ff7a59",
+      "trending": true,
+      "versions": [
+        {
+          "version": "1.0",
+          "type": "git",
+          "source": {
+            "repo": "https://github.com/gopu-bruno/bruno-collections",
+            "subdir": "hubspot-crm-api",
+            "ref": "main"
+          }
+        }
+      ],
+      "latestVersion": "1.0"
+    },
+    {
+      "ns": "openai",
+      "name": "openai-api",
+      "title": "OpenAI API",
+      "tagline": "Chat completions and models for the OpenAI API.",
+      "category": "ai",
+      "langs": [
+        "REST"
+      ],
+      "color": "#10a37f",
+      "featured": true,
+      "versions": [
+        {
+          "version": "1.0",
+          "type": "git",
+          "source": {
+            "repo": "https://github.com/gopu-bruno/bruno-collections",
+            "subdir": "openai-openai-api",
+            "ref": "main"
+          }
+        }
+      ],
+      "latestVersion": "1.0"
+    },
+    {
+      "ns": "stripe",
+      "name": "stripe-api",
+      "title": "Stripe API",
+      "tagline": "Payments, customers and webhooks for the Stripe REST API.",
+      "category": "payments",
+      "langs": [
+        "REST"
+      ],
+      "color": "#635bff",
+      "featured": true,
+      "versions": [
+        {
+          "version": "1.0",
+          "type": "git",
+          "source": {
+            "repo": "https://github.com/gopu-bruno/bruno-collections",
+            "subdir": "stripe-stripe-api",
+            "ref": "stripe-stripe-api@1.0"
+          }
+        },
+        {
+          "version": "1.1",
+          "type": "url",
+          "source": {
+            "url": "https://cdn.usebruno.com/stripe/stripe-api/1.1/opencollection.yml"
+          },
+          "hash": "sha256-q1Mng3dGfP6mWj5kc3PqV0i8x0Qk2bq1bH8rXjYwZ0E="
+        }
+      ],
+      "latestVersion": "1.1"
+    }
+  ],
+  "totalCollections": 8,
+  "publishers": 8
+}

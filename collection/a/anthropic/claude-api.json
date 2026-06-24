@@ -4,10 +4,6 @@
   "title": "Claude Messages API",
   "tagline": "Anthropic Messages API with tool use and prompt caching.",
   "category": "ai",
-  "langs": [
-    "REST"
-  ],
-  "color": "#d97757",
   "trending": true,
   "versions": [
     {

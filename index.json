@@ -6,10 +6,6 @@
       "title": "Algolia Search API",
       "tagline": "Indexing, search and recommend.",
       "category": "data",
-      "langs": [
-        "REST"
-      ],
-      "color": "#5468ff",
       "trending": true,
       "versions": [
         {
@@ -30,10 +26,6 @@
       "title": "Claude Messages API",
       "tagline": "Anthropic Messages API with tool use and prompt caching.",
       "category": "ai",
-      "langs": [
-        "REST"
-      ],
-      "color": "#d97757",
       "trending": true,
       "versions": [
         {
@@ -54,10 +46,6 @@
       "title": "Cloudinary Upload",
       "tagline": "Upload, transform and deliver media.",
       "category": "storage",
-      "langs": [
-        "REST"
-      ],
-      "color": "#3448c5",
       "trending": true,
       "versions": [
         {
@@ -78,10 +66,6 @@
       "title": "Datadog API",
       "tagline": "Metrics, monitors, logs and dashboards.",
       "category": "devops",
-      "langs": [
-        "REST"
-      ],
-      "color": "#632ca6",
       "trending": true,
       "versions": [
         {
@@ -102,10 +86,6 @@
       "title": "GitHub REST API",
       "tagline": "Core endpoints of the GitHub REST API.",
       "category": "devops",
-      "langs": [
-        "REST"
-      ],
-      "color": "#24292e",
       "featured": true,
       "versions": [
         {
@@ -126,10 +106,6 @@
       "title": "HubSpot CRM API",
       "tagline": "Contacts, companies, deals and tickets.",
       "category": "productivity",
-      "langs": [
-        "REST"
-      ],
-      "color": "#ff7a59",
       "trending": true,
       "versions": [
         {
@@ -150,10 +126,6 @@
       "title": "OpenAI API",
       "tagline": "Chat completions and models for the OpenAI API.",
       "category": "ai",
-      "langs": [
-        "REST"
-      ],
-      "color": "#10a37f",
       "featured": true,
       "versions": [
         {
@@ -174,10 +146,6 @@
       "title": "Stripe API",
       "tagline": "Payments, customers and webhooks for the Stripe REST API.",
       "category": "payments",
-      "langs": [
-        "REST"
-      ],
-      "color": "#635bff",
       "featured": true,
       "versions": [
         {

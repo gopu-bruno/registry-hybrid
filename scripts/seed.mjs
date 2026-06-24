@@ -15,15 +15,13 @@ const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const HOST_REPO = 'https://github.com/gopu-bruno/bruno-collections';
 
 const COLLECTIONS = [
-  { ns: 'stripe', name: 'stripe-api', title: 'Stripe API', tagline: 'Payments, customers and webhooks for the Stripe REST API.', category: 'payments', featured: true, langs: ['REST'], color: '#635bff' },
-  { ns: 'github', name: 'rest-api', title: 'GitHub REST API', tagline: 'Core endpoints of the GitHub REST API.', category: 'devops', featured: true, langs: ['REST'], color: '#24292e' },
-  { ns: 'openai', name: 'openai-api', title: 'OpenAI API', tagline: 'Chat completions and models for the OpenAI API.', category: 'ai', featured: true, langs: ['REST'], color: '#10a37f' },
+  { ns: 'stripe', name: 'stripe-api', title: 'Stripe API', tagline: 'Payments, customers and webhooks for the Stripe REST API.', category: 'payments', featured: true },
+  { ns: 'github', name: 'rest-api', title: 'GitHub REST API', tagline: 'Core endpoints of the GitHub REST API.', category: 'devops', featured: true },
+  { ns: 'openai', name: 'openai-api', title: 'OpenAI API', tagline: 'Chat completions and models for the OpenAI API.', category: 'ai', featured: true },
 ];
 
 const entryFor = (c) => {
   const entry = { ns: c.ns, name: c.name, title: c.title, tagline: c.tagline, category: c.category };
-  if (c.langs) entry.langs = c.langs;
-  if (c.color) entry.color = c.color;
   if (c.featured) entry.featured = true;
   if (c.trending) entry.trending = true;
   entry.versions = [

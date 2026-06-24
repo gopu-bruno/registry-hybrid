@@ -14,8 +14,6 @@
       "type": "string",
       "enum": ["payments", "ai", "auth", "devops", "comms", "data", "storage", "productivity"]
     },
-    "langs": { "type": "array", "description": "Optional display tags (e.g. \"REST\", \"Streaming\").", "items": { "type": "string" } },
-    "color": { "type": "string", "description": "Optional accent color (hex) for the listing." },
     "verified": { "type": "boolean", "description": "EDITORIAL — set by maintainers during review. Omit when submitting." },
     "official": { "type": "boolean", "description": "EDITORIAL — set by maintainers during review. Omit when submitting." },
     "featured": { "type": "boolean", "description": "EDITORIAL — set by maintainers during review. Omit when submitting." },

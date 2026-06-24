@@ -4,10 +4,6 @@
   "title": "Algolia Search API",
   "tagline": "Indexing, search and recommend.",
   "category": "data",
-  "langs": [
-    "REST"
-  ],
-  "color": "#5468ff",
   "trending": true,
   "versions": [
     {

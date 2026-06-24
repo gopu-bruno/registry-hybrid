@@ -4,10 +4,6 @@
   "title": "GitHub REST API",
   "tagline": "Core endpoints of the GitHub REST API.",
   "category": "devops",
-  "langs": [
-    "REST"
-  ],
-  "color": "#24292e",
   "featured": true,
   "versions": [
     {

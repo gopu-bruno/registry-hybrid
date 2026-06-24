@@ -4,10 +4,6 @@
   "title": "Datadog API",
   "tagline": "Metrics, monitors, logs and dashboards.",
   "category": "devops",
-  "langs": [
-    "REST"
-  ],
-  "color": "#632ca6",
   "trending": true,
   "versions": [
     {

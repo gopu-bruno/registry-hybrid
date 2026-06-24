@@ -4,10 +4,6 @@
   "title": "OpenAI API",
   "tagline": "Chat completions and models for the OpenAI API.",
   "category": "ai",
-  "langs": [
-    "REST"
-  ],
-  "color": "#10a37f",
   "featured": true,
   "versions": [
     {

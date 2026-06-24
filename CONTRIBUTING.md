@@ -11,8 +11,6 @@ Publishing to the registry is a pull request. No account, no server — GitHub i
   "title": "Claude Messages API",
   "tagline": "Anthropic Messages API with tool use and prompt caching.",
   "category": "ai",
-  "langs": ["REST", "Streaming"],
-  "color": "#d97757",
   "versions": [
     {
       "version": "1.0.0",
@@ -27,7 +25,7 @@ Publishing to the registry is a pull request. No account, no server — GitHub i
 }
 ```
 
-2. **Required fields:** `ns`, `name`, `title`, `category`, `versions` (at least one). `tagline`, `langs`, `color` are optional display extras. Valid categories: `payments`, `ai`, `auth`, `devops`, `comms`, `data`, `storage`, `productivity`. See [the schema](schema/collection.schema.json).
+2. **Required fields:** `ns`, `name`, `title`, `category`, `versions` (at least one). `tagline` is an optional one-line description. Valid categories: `payments`, `ai`, `auth`, `devops`, `comms`, `data`, `storage`, `productivity`. See [the schema](schema/collection.schema.json).
 
 3. Open a PR. CI validates your entry (it must parse, match its path, and have valid versions). On merge, `index.json` is rebuilt automatically and your collection appears on the find page.
 

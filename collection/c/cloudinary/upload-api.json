@@ -4,10 +4,6 @@
   "title": "Cloudinary Upload",
   "tagline": "Upload, transform and deliver media.",
   "category": "storage",
-  "langs": [
-    "REST"
-  ],
-  "color": "#3448c5",
   "trending": true,
   "versions": [
     {

@@ -4,10 +4,6 @@
   "title": "Stripe API",
   "tagline": "Payments, customers and webhooks for the Stripe REST API.",
   "category": "payments",
-  "langs": [
-    "REST"
-  ],
-  "color": "#635bff",
   "featured": true,
   "versions": [
     {

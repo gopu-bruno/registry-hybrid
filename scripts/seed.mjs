@@ -27,7 +27,7 @@ const entryFor = (c) => {
   if (c.featured) entry.featured = true;
   if (c.trending) entry.trending = true;
   entry.versions = [
-    { version: '1.0', type: 'git', source: { repo: HOST_REPO, subdir: `${c.ns}-${c.name}`, ref: 'main' } },
+    { version: '1.0.0', type: 'git', source: { repo: HOST_REPO, subdir: `${c.ns}-${c.name}`, ref: 'main' } },
   ];
   return entry;
 };

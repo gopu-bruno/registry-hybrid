@@ -11,7 +11,7 @@
   "featured": true,
   "versions": [
     {
-      "version": "1.0",
+      "version": "1.0.0",
       "type": "git",
       "source": {
         "repo": "https://github.com/gopu-bruno/bruno-collections",
@@ -20,7 +20,7 @@
       }
     },
     {
-      "version": "1.1",
+      "version": "1.1.0",
       "type": "url",
       "source": {
         "url": "https://cdn.usebruno.com/stripe/stripe-api/1.1/opencollection.yml"

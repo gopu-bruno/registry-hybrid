@@ -4,10 +4,12 @@
 //   node scripts/build-index.mjs          # write index.json
 //   node scripts/build-index.mjs --check  # validate entries only (used in PR CI)
 //
-// The registry is a pure pointer catalog: it stores NO usage stats. Install
-// counts come from a separate public API, not from here, so this build does no
-// network calls. "featured" / "trending" / "categories" / "latestVersion" /
-// totals are DERIVED here, so adding a collection via PR is all it takes.
+// The registry is a pure pointer catalog: it stores NO usage stats and bakes in
+// NO presentation. The index is just { collections, totalCollections,
+// publishers }; each entry gets a derived `latestVersion`. featured / trending /
+// categories are presentation, derived CLIENT-side from the flags/category on
+// each entry (see deriveHome() in @usebruno/registry-ui) — so the contract isn't
+// coupled to one homepage and entries aren't duplicated. No network calls.
 import { readdir, readFile, writeFile } from 'node:fs/promises';
 import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -30,18 +32,33 @@ const CATEGORIES = {
 
 const REQUIRED = ['ns', 'name', 'title', 'category', 'versions'];
 const SOURCE_TYPES = ['git', 'url'];
+// Versions are semver: major.minor.patch, optional -prerelease, optional leading v.
+const SEMVER_RE = /^v?\d+\.\d+\.\d+(?:-[0-9A-Za-z.-]+)?$/;
 
-// Compare two manual version labels as semver (coercing "1.0" -> "1.0.0").
-// Returns >0 if a is newer than b. Non-numeric segments fall back to string
-// compare so odd labels still order deterministically.
+// Compare two versions by semver precedence. Core (major.minor.patch) compares
+// numerically; a prerelease (e.g. 1.0.0-beta) ranks BELOW its release; prerelease
+// identifiers compare dot-wise (numeric vs string). Returns >0 if a is newer.
 function cmpVersion(a, b) {
-  const parts = (v) => String(v).split('.').map((n) => (/^\d+$/.test(n) ? Number(n) : n));
-  const pa = parts(a), pb = parts(b);
-  for (let i = 0; i < Math.max(pa.length, pb.length); i++) {
-    const x = pa[i] ?? 0, y = pb[i] ?? 0;
-    if (x === y) continue;
-    if (typeof x === 'number' && typeof y === 'number') return x - y;
-    return String(x) > String(y) ? 1 : -1;
+  const parse = (v) => {
+    const core = String(v == null ? '' : v).trim().replace(/^v/, '').split('+')[0];
+    const [main, pre] = core.split('-');
+    const nums = main.split('.').map((n) => (/^\d+$/.test(n) ? Number(n) : 0));
+    while (nums.length < 3) nums.push(0);
+    return { nums, pre: pre || null };
+  };
+  const pa = parse(a), pb = parse(b);
+  for (let i = 0; i < 3; i++) if (pa.nums[i] !== pb.nums[i]) return pa.nums[i] - pb.nums[i];
+  if (!pa.pre && !pb.pre) return 0;
+  if (!pa.pre) return 1;   // release outranks prerelease
+  if (!pb.pre) return -1;
+  const ai = pa.pre.split('.'), bi = pb.pre.split('.');
+  for (let i = 0; i < Math.max(ai.length, bi.length); i++) {
+    const x = ai[i], y = bi[i];
+    if (x === undefined) return -1;
+    if (y === undefined) return 1;
+    const xn = /^\d+$/.test(x), yn = /^\d+$/.test(y);
+    if (xn && yn) { if (Number(x) !== Number(y)) return Number(x) - Number(y); }
+    else if (x !== y) return x > y ? 1 : -1;
   }
   return 0;
 }
@@ -104,6 +121,7 @@ function validate(entry, relPath) {
   }
   for (const v of entry.versions) {
     if (!v || !v.version) throw new Error(`${where}: a version is missing "version"`);
+    if (!SEMVER_RE.test(v.version)) throw new Error(`${where}: version "${v.version}" must be semver (major.minor.patch, e.g. 1.0.0)`);
     if (!SOURCE_TYPES.includes(v.type)) throw new Error(`${where}: version ${v.version} has invalid type "${v.type}" (valid: ${SOURCE_TYPES.join(', ')})`);
     if (!v.source || typeof v.source !== 'object') throw new Error(`${where}: version ${v.version} is missing "source"`);
     if (v.type === 'git' && !v.source.repo) throw new Error(`${where}: version ${v.version} (git) is missing source.repo`);
@@ -112,27 +130,17 @@ function validate(entry, relPath) {
 }
 
 function buildIndex(all) {
-  // Stamp each entry with its derived latest version (clients show it directly).
-  const enriched = all.map((c) => ({ ...c, latestVersion: latestVersion(c.versions) }));
-
-  // Order is deterministic by title.
-  const sorted = [...enriched].sort((a, b) => a.title.localeCompare(b.title));
-  const featured = sorted.filter((c) => c.featured).slice(0, 3);
-  const trending = sorted.filter((c) => c.trending && !c.featured);
-
-  const counts = {};
-  for (const c of all) counts[c.category] = (counts[c.category] || 0) + 1;
-  const categories = Object.entries(CATEGORIES)
-    .map(([id, meta]) => ({ id, label: meta.label, icon: meta.icon, count: counts[id] || 0 }))
-    .filter((c) => c.count > 0);
+  // Pure catalog. Stamp each entry with its derived latest version, order
+  // deterministically by title, and report light totals. Presentation
+  // (featured / trending / categories) is derived client-side from the entries.
+  const collections = all
+    .map((c) => ({ ...c, latestVersion: latestVersion(c.versions) }))
+    .sort((a, b) => a.title.localeCompare(b.title));
 
   const publishers = new Set(all.map((c) => c.ns)).size;
 
   return {
-    featured,
-    trending,
-    categories,
-    all: sorted,
+    collections,
     totalCollections: all.length,
     publishers,
   };

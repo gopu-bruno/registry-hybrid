@@ -11,7 +11,7 @@
   "featured": true,
   "versions": [
     {
-      "version": "1.0",
+      "version": "1.0.0",
       "type": "git",
       "source": {
         "repo": "https://github.com/gopu-bruno/bruno-collections",

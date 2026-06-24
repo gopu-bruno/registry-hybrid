@@ -28,7 +28,7 @@ decisions. The design space is *which layer is git-backed* and *which is derived
 | 2 | **Source manifest** | Where is metadata authored, in what format? | That JSON file ([schema](schema/collection.schema.json)). `<letter>` (first char of `<ns>`) shards the tree so directories stay small. |
 | 3 | **Publish gate** | How does something get in? | Pull request + CI validation. GitHub review is the gate. |
 | 4 | **Transform/build** | Is there a CI step that produces artifacts? | `build-index.mjs` flattens entries into `index.json` and derives each collection's **latest version** (by semver). **No network, no stats.** |
-| 5 | **Catalog/index** | What surface do clients discover through? | `index.json`, a single static file served from the repo. |
+| 5 | **Catalog/index** | What surface do clients discover through? | `index.json` — a **pure catalog**: `{ collections, totalCollections, publishers }`. Presentation (featured/trending/categories) is derived client-side from the entries, not baked in. |
 | 6 | **Resolution** | How does name → location happen? | Read `index.json` → pick a version → resolve its `source`: `git` (clone repo at `ref`, optional `subdir`) or `url` (download the artifact). |
 | 7 | **Content store** | Where do the actual bits live? | **Nowhere here.** In the version's git repo, or behind its `url`. We only point. |
 | 8 | **Versioning** | How are versions tracked and selected? | **Index-carries-versions (Cargo style):** every version is an entry in the file's `versions` array, each with its own `source`. A new version is a PR. Latest is derived by semver. |

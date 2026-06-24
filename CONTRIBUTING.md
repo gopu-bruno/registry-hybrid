@@ -15,12 +15,12 @@ Publishing to the registry is a pull request. No account, no server — GitHub i
   "color": "#d97757",
   "versions": [
     {
-      "version": "1.0",
+      "version": "1.0.0",
       "type": "git",
       "source": {
         "repo": "https://github.com/anthropics/bruno-collections",
         "subdir": "claude-api",
-        "ref": "claude-api@1.0"
+        "ref": "claude-api@1.0.0"
       }
     }
   ]
@@ -39,17 +39,17 @@ A collection's `versions` array is the source of truth — there is no GitHub Re
 
 ```json
 "versions": [
-  { "version": "1.0", "type": "git",
-    "source": { "repo": "https://github.com/you/collections", "subdir": "my-api", "ref": "my-api@1.0" } },
-  { "version": "1.1", "type": "url",
-    "source": { "url": "https://cdn.example.com/my-api/1.1/opencollection.yml" },
+  { "version": "1.0.0", "type": "git",
+    "source": { "repo": "https://github.com/you/collections", "subdir": "my-api", "ref": "my-api@1.0.0" } },
+  { "version": "1.1.0", "type": "url",
+    "source": { "url": "https://cdn.example.com/my-api/1.1.0/opencollection.yml" },
     "hash": "sha256-q1Mng3dGfP6mWj5kc3PqV0i8x0Qk2bq1bH8rXjYwZ0E=" }
 ]
 ```
 
 | Field | Required | Notes |
 |---|---|---|
-| `version` | yes | Manual label, e.g. `"1.0"` or `"2.1.3"`. The **latest** shown is derived by comparing these as semver — order in the array doesn't matter. |
+| `version` | yes | Semver `major.minor.patch` (optional `-prerelease`), e.g. `"1.0.0"` or `"2.1.3-beta.1"`. The **latest** shown is derived by semver precedence — order in the array doesn't matter. |
 | `type` | yes | `git` or `url`. |
 | `source` | yes | For `git`: `{ repo, ref?, subdir? }`. For `url`: `{ url }` (a direct download of the `opencollection.yml` artifact, hosted anywhere). |
 | `hash` | no | SHA-256 of the resolved artifact, SRI-style `sha256-<base64>`. The client verifies it after download — recommended especially for `url` sources, whose contents can change. |

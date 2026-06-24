@@ -29,7 +29,7 @@
         "required": ["version", "type", "source"],
         "additionalProperties": false,
         "properties": {
-          "version": { "type": "string", "description": "Manual version label, e.g. \"1.0\" or \"2.1.3\". Compared as semver to pick the latest." },
+          "version": { "type": "string", "pattern": "^v?\\d+\\.\\d+\\.\\d+(?:-[0-9A-Za-z.-]+)?$", "description": "Semver version: major.minor.patch, optional -prerelease (e.g. \"1.0.0\", \"2.1.3-beta.1\"). Compared by semver precedence to pick the latest." },
           "type": { "type": "string", "enum": ["git", "url"], "description": "How `source` is resolved: clone a git repo, or download a hosted artifact." },
           "source": { "type": "object", "description": "Locator for this version's opencollection artifact. Shape depends on `type` (see allOf)." },
           "hash": { "type": "string", "description": "Optional SHA-256 of the resolved opencollection artifact, SRI-style \"sha256-<base64>\". Verified client-side after download." }

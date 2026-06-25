@@ -1,0 +1,16 @@
+{
+  "ns": "gopu-bruno",
+  "name": "vercel-api",
+  "title": "Vercel API",
+  "category": "payments",
+  "versions": [
+    {
+      "version": "1.0.0",
+      "type": "git",
+      "source": {
+        "repo": "https://github.com/gopu-bruno/bruno-collections",
+        "subdir": "vercel-vercel-api"
+      }
+    }
+  ]
+}

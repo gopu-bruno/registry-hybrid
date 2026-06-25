@@ -21,6 +21,23 @@
       "latestVersion": "1.0.0"
     },
     {
+      "ns": "gopu-bruno",
+      "name": "auth0-management-api",
+      "title": "Auth0 Management API",
+      "category": "payments",
+      "versions": [
+        {
+          "version": "1.0.0",
+          "type": "git",
+          "source": {
+            "repo": "https://github.com/gopu-bruno/bruno-collections",
+            "subdir": "auth0-management-api"
+          }
+        }
+      ],
+      "latestVersion": "1.0.0"
+    },
+    {
       "ns": "anthropic",
       "name": "claude-api",
       "title": "Claude Messages API",
@@ -169,6 +186,6 @@
       "latestVersion": "1.1.0"
     }
   ],
-  "totalCollections": 8,
-  "publishers": 8
+  "totalCollections": 9,
+  "publishers": 9
 }

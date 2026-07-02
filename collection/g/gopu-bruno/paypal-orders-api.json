@@ -2,6 +2,7 @@
   "ns": "gopu-bruno",
   "name": "paypal-orders-api",
   "title": "PayPal Orders API",
+  "summar": "Unoffical paypal bruno yml collections"
   "category": "payments",
   "versions": [
     {
